@@ -1,0 +1,61 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<!--
+			<div ng-show="$scope.mensagem!=""" class="ng-hide">
+				<div class="alert alert-danger alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					{{mensagem}}
+				</div>
+			</div>
+			-->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+		    	<input type="text" class="form-control" ng-model="cliente.nome" placeholder="Informe o nome">
+		  	</div>
+		  	<div class="form-group">
+		    	<input type="text" class="form-control" ng-model="cliente.cpf"  mask="999.999.999-99" placeholder="Informe o CPF">
+		  	</div>
+		  	<button type="button" class="btn btn-primary btn-block" ng-click="adicionarCliente(cliente)" ng-disabled="!cliente.nome">Adicionar Cliente</button>
+		</div>
+		<div class="col-md-8">
+			<div class="form-group">
+				<div class="col-md-4">
+					<input type="text" ng-model="filterNome" class="form-control" placeholder="Pesquisar por nome">
+				</div>
+				<div class="col-md-4">
+					<input type="text" class="form-control" ng-model="filterCpf"  mask="999.999.999-99" placeholder="Pesquisa por CPF">
+				</div>
+			</div>
+			<br/>
+			<hr/>
+			<div class="table-responsive">
+	  			<table class="table">
+	    			<thead>
+						<tr>
+					    	<th>#</th>
+					      	<th>Nome</th>
+					      	<th>CPF</th>
+					      	<th><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></th>
+					      	<th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="cliente in clientes | filter: {nome:filterNome, cpf:filterCpf}">
+				    		<td>{{cliente.id}}</td>
+				      		<td>{{cliente.nome}}</td>
+				      		<td>{{cliente.cpf}}</td>
+				      		<td><span class="glyphicon glyphicon-edit" aria-hidden="true" ng-click="editarCliente(cliente)"></td>
+				      		<td><span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="excluirCliente(cliente)"></td>
+						</tr>
+					</tbody>	
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
